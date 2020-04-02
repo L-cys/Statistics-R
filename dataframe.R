@@ -1,0 +1,23 @@
+library(tidyverse)
+library(ggplot2)
+data = data.frame(Name = c('yz','sy','yw','sx','dy'),Age = c(24,21,21,20,23),Sex = c('F','F','F','F','F'),Height = c(161,170,157,162,169))
+print(data)
+data_more <- mutate(data,Weight = c(44,53,48,60,59))
+added <- data.frame(Name = 'ys',Age = 22,Sex = 'F',Height = 167, Weight = 58)
+data_all <- rbind(data_more,added)
+print(data_all)
+ys_information <- slice(data_all,6)
+mean_height <- mean(data_all$Height)
+mediam_height <- median(data_all$Height)
+sd_height <- sd(data_all$Height)
+print(mean_height)
+print(mediam_height)
+print(sd_height)
+name_age <- data.frame(data_all$Name,data_all$Age)
+ggplot(data = name_age,mapping = aes(data_all$Name,data_all$Age)) + geom_bar(stat= 'identity')
+boxplot(data_all$Height)
+plot(x = data_all$Height, y = data_all$Weight)
+ggplot(data_all,aes(x = data_all$Height, y = data_all$Weight)) + geom_line()
+
+
+

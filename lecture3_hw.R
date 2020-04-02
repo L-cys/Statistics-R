@@ -1,0 +1,13 @@
+library(tidyverse)
+a <- fivenum(mtcars$mpg)
+print(a)
+pp <- ggplot(mtcars, aes(y = mpg)) + geom_boxplot()
+b <- summary(mtcars$drat)
+print(b)
+ggplot(mtcars, aes(x = qsec)) + geom_histogram(binwidth = 5)
+ggplot(mtcars, aes(x = qsec)) + geom_histogram(binwidth = 2)
+ggplot(mtcars, aes(x = qsec)) + geom_histogram(binwidth = 2, aes(y = ..density..)) + geom_density()
+ggplot(mtcars,aes(group = vs, y = qsec)) + geom_boxplot()
+ggplot(mtcars,aes(group = vs, y = mpg)) + geom_boxplot() + facet_wrap(gear ~ am)
+ggplot(mtcars,aes(group = vs, y = qsec)) + geom_boxplot() + facet_wrap(gear ~ am)
+
